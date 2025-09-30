@@ -1,4 +1,16 @@
 {
-  "image": "archlinux",
-  "features": {}
+  "image": "ghcr.io/nvveen/dotfiles:v2",
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "foxundermoon.shell-format"
+      ],
+      "settings": {
+        "dotfiles.repository": "",
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
+    }
+  },
+  "postCreateCommand": "cd ~/ && curl -fsSL https://tinyurl.com/nealdotfiles | bash && cd dotfiles && bash setup.sh --verbose install"
 }
