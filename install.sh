@@ -43,6 +43,7 @@ main() {
     setup_packages
     setup_paru
     install_defaults
+    install_configs
 }
 
 main "$@"
