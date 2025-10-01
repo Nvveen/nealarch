@@ -1,5 +1,6 @@
 #!/bin/bash
 
+SCRIPT_DIR=$(dirname "$0")
 PACKAGES=$(cat "$(dirname "$0")/packages" | tr '\n' ' ')
 
 log() {
@@ -14,7 +15,7 @@ setup_packages() {
 install_defaults () {
     log "Installing default configuration files..."
     mkdir -p ~/.local/share/nealhost/default
-    cp -r "$(dirname "$0")/files/default/"* ~/.local/share/nealhost/default/
+    cp -r "$SCRIPT_DIR/files/default/"* ~/.local/share/nealhost/default/
 }
 
 install_configs() {
