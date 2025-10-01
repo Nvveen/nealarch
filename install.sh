@@ -33,6 +33,7 @@ setup_paru() {
         makepkg -si --noconfirm
         cd .. || exit
         rm -rf paru
+        cd $SCRIPT_DIR || exit
     else
         echo "paru is already installed."
     fi
