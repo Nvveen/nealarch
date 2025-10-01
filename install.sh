@@ -21,18 +21,18 @@ install_defaults () {
 install_configs() {
     log "Installing configuration files..."
     mkdir -p ~/.config
-    cp -r "$(dirname "$0")/files/config/"* ~/.config/
+    cp -r "$SCRIPT_DIR/files/config/"* ~/.config/
 }
 
 setup_paru() {
     if ! command -v paru &> /dev/null; then
         echo "Installing paru..."
         cd /tmp || exit
-        git clone https://aur.archlinux.org/paru.git
-        cd paru || exit
+        git clone https://aur.archlinux.org/paru-bin.git
+        cd paru-bin || exit
         makepkg -si --noconfirm
         cd .. || exit
-        rm -rf paru
+        rm -rf paru-bin
         cd $SCRIPT_DIR || exit
     else
         echo "paru is already installed."
