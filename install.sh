@@ -23,6 +23,8 @@ install_configs() {
     log "Installing configuration files..."
     mkdir -p ~/.config
     cp -r "$SCRIPT_DIR/files/config/"* ~/
+
+    xdg-user-dirs-update
 }
 
 setup_paru() {
