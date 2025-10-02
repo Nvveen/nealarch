@@ -22,7 +22,7 @@ install_defaults () {
 install_configs() {
     log "Installing configuration files..."
     mkdir -p ~/.config
-    cp -r "$SCRIPT_DIR/files/config/"* ~/.config/
+    cp -r "$SCRIPT_DIR/files/config/"* ~/
 }
 
 setup_paru() {
