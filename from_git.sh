@@ -3,7 +3,7 @@
 mkdir -p /tmp/nealhost
 cd /tmp/nealhost || exit
 sudo pacman -Sy git --noconfirm || exit
-git clone https://github.com/Nvveen/nealhost && cd nealhost || exit
+git clone https://github.com/Nvveen/nealarch && cd nealarch || exit
 bash install.sh
 cd /tmp || exit
 rm -rf nealhost
