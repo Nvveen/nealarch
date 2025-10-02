@@ -15,8 +15,8 @@ setup_packages() {
 
 install_defaults () {
     log "Installing default configuration files..."
-    mkdir -p ~/.local/share/nealhost/default
-    cp -r "$SCRIPT_DIR/files/default/"* ~/.local/share/nealhost/default/
+    mkdir -p ~/.local/share/nealarch/default
+    cp -r "$SCRIPT_DIR/files/default/"* ~/.local/share/nealarch/default/
 }
 
 install_configs() {
