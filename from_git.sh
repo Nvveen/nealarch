@@ -5,4 +5,5 @@ cd /tmp/nealhost || exit
 sudo pacman -Sy git --noconfirm || exit
 git clone https://github.com/Nvveen/nealhost && cd nealhost || exit
 bash install.sh
-rm -rf /tmp/nealhost
+cd /tmp || exit
+rm -rf nealhost

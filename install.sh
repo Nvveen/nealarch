@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR=$(dirname "$0")
-PACKAGES=$(cat "$(dirname "$0")/packages" | tr '\n' ' ')
+PACKAGES=$(cat "$SCRIPT_DIR/packages" | tr '\n' ' ')
 
 log() {
     echo -e "\e[32m[INFO]\e[0m $1"
