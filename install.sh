@@ -1,6 +1,7 @@
 #!/bin/bash
 
-SCRIPT_DIR=$(dirname "$0")
+# absolute path to this script
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 PACKAGES=$(cat "$SCRIPT_DIR/packages" | tr '\n' ' ')
 
 log() {
