@@ -1,0 +1,100 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 4,
+  
+  "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/submap"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["custom/system", "battery", "clock#time", "clock#date", "tray"],
+
+  "custom/launcher": {
+    "format": "",
+    "on-click": "walker",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "format-icons": {
+      "active": "󰮯",
+      "default": "󰊠"
+    }
+  },
+
+  "hyprland/submap": {
+    "format": "󰘳 {}",
+    "max-length": 15
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 70,
+    "separate-outputs": true,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "Firefox: 󰈹 $1",
+      "(.*)Mozilla Firefox": "Firefox: 󰈹",
+      "(.*) — Chromium": "Chromium:  $1",
+      "(.*)Chromium": "Chromium: ",
+      "(.*) - Code": "Code: 󰨞 $1",
+      "(.*)Visual Studio Code": "Code: 󰨞",
+      "(.*) - nvim": "Neovim:  $1",
+      "(.*)nvim": "Neovim: ",
+      "^foot(.*)$": "Terminal:  $1",
+      "(.*)Spotify": "Spotify:  $1",
+      "(.*)Discord": "Discord:  $1",
+      "(.*)Slack": "Slack:  $1",
+      "(.*)Thunar": "Files: 󰉋 $1"
+    }
+  },
+
+  "custom/system": {
+    "format": "",
+    "tooltip": true,
+    "interval": 2,
+    "exec": "echo '{\"text\":\"\",\"tooltip\":\"CPU: '$(top -bn1 | grep \"Cpu(s)\" | sed \"s/.*, *\\([0-9.]*\\)%* id.*/\\1/\" | awk '{print 100 - $1\"%\"}')'\\nMemory: '$(free -h | awk '/^Mem:/ {print $3\"/\"$2}')'\\nDisk: '$(df -h / | awk 'NR==2 {print $4\" free\"}')'\"}'",
+    "return-type": "json"
+  },
+
+  "battery": {
+    "interval": 10,
+    "states": {
+      "full": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}",
+    "format-charging": "󱐋 {capacity}",
+    "format-plugged": "󰚥",
+    "format-full": "󱟢",
+    "format-icons": ["󱃍", "󰁺", "󰁼", "󰁾", "󰂀", "󰂂"],
+    "tooltip-format": "{capacity}% {timeTo}"
+  },
+
+  "clock#time": {
+    "interval": 1,
+    "format": "{:%H:%M}",
+    "tooltip": false
+  },
+
+  "clock#date": {
+    "interval": 60,
+    "format": "{:%d-%m}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "months": "<span color='#7fc8a9'><b>{}</b></span>",
+        "days": "<span color='#ceceb0'>{}</span>",
+        "weeks": "<span color='#a6c38d'>W{}</span>",
+        "weekdays": "<span color='#96d7af'><b>{}</b></span>",
+        "today": "<span color='#f89f64'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  }
+}
