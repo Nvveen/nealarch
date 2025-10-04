@@ -1,0 +1,223 @@
+@import "colors.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+  font-size: 12px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: @bg;
+  color: @fg;
+}
+
+#custom-launcher {
+  margin: 1px 0 1px 4px;
+  padding: 0 10px;
+  background: @jade;
+  color: @bg_dark;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+#custom-launcher:hover {
+  background: @jade_bright;
+}
+
+#workspaces {
+  margin: 0 4px;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  margin: 1px 2px;
+  background: @surface;
+  color: @text_dim;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+#workspaces button:hover {
+  background: @surface_bright;
+  color: @jade;
+  border-color: @jade;
+}
+
+#workspaces button.active {
+  background: @jade;
+  color: @bg_dark;
+  border: 1px solid @jade_bright;
+}
+
+#submap {
+  margin: 1px 4px 1px 0;
+  padding: 0 8px;
+  background: @peach;
+  color: @bg_dark;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+#window {
+  padding: 0 10px;
+  color: @jade_bright;
+  font-weight: 600;
+  background: transparent;
+}
+
+group#system {
+  margin: 1px 0;
+  background: @surface;
+  border-radius: 10px;
+  border: 1px solid @surface_bright;
+}
+
+#custom-system {
+  margin: 1px 3px;
+  padding: 0 8px;
+  background: @surface;
+  color: @jade;
+  border-radius: 10px;
+  border: 1px solid @surface_bright;
+  transition: all 0.3s ease;
+}
+
+#custom-system:hover {
+  background: @surface_bright;
+  color: @jade_bright;
+}
+
+#cpu,
+#memory,
+#disk {
+  padding: 0 6px;
+  margin: 0;
+  background: transparent;
+  transition: color 0.3s ease;
+}
+
+#cpu {
+  color: @jade;
+  border-radius: 10px 0 0 10px;
+}
+
+#memory {
+  color: @teal;
+  border-left: 1px solid @bg;
+  border-right: 1px solid @bg;
+}
+
+#disk {
+  color: @olive;
+  border-radius: 0 10px 10px 0;
+}
+
+#cpu:hover,
+#memory:hover,
+#disk:hover {
+  background: @surface_bright;
+}
+
+#cpu.warning,
+#memory.warning,
+#disk.warning {
+  color: @yellow;
+}
+
+#cpu.critical,
+#memory.critical,
+#disk.critical {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#battery {
+  margin: 1px 3px;
+  padding: 0 8px;
+  background: @surface;
+  color: @jade_bright;
+  border-radius: 10px;
+  border: 1px solid @surface_bright;
+  transition: all 0.3s ease;
+}
+
+#battery.charging {
+  color: @jade;
+  background: @surface;
+}
+
+#battery.full {
+  color: @jade;
+}
+
+#battery.warning {
+  color: @peach;
+  border-color: @peach;
+}
+
+#battery.critical {
+  color: @red;
+  background: alpha(@peach, 0.1);
+  border-color: @red;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#clock.time {
+  margin: 1px 0 1px 3px;
+  padding: 0 7px;
+  background: @jade;
+  color: @bg_dark;
+  border-radius: 10px 0 0 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+#clock.date {
+  margin: 1px 4px 1px 0;
+  padding: 0 7px;
+  background: @surface;
+  color: @jade;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid @jade;
+  border-left: none;
+  font-variant: small-caps;
+}
+
+#clock:hover {
+  background: @jade_bright;
+}
+
+#tray {
+  margin: 1px 4px 1px 0;
+  padding: 0 5px;
+  background: @surface;
+  border-radius: 10px;
+  border: 1px solid @surface_bright;
+}
+
+#tray > .passive {
+  opacity: 0.7;
+}
+
+#tray > .active {
+  opacity: 1;
+}
+
+#tray > .needs-attention {
+  color: @peach;
+}
+
+@keyframes blink {
+  to {
+    opacity: 0.3;
+  }
+}
