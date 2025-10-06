@@ -171,6 +171,28 @@ group#system {
   animation-iteration-count: infinite;
 }
 
+#network {
+  margin: 1px 3px;
+  padding: 0 8px;
+  background: @surface;
+  color: @jade_bright;
+  border-radius: 10px;
+  border: 1px solid @surface_bright;
+  transition: all 0.3s ease;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+#network.wifi {
+  color: @teal;
+}
+
+#network.ethernet {
+  color: @jade;
+}
+
 #clock.time {
   margin: 1px 0 1px 3px;
   padding: 0 7px;

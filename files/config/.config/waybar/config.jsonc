@@ -6,7 +6,7 @@
 
   "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/submap"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["group/system", "battery", "clock#time", "clock#date", "tray"],
+  "modules-right": ["group/system", "network", "battery", "clock#time", "clock#date", "tray"],
 
   "group/system": {
     "orientation": "inherit",
@@ -21,7 +21,15 @@
       "disk"
     ]
   },
-
+  "network": {
+    "interval": 2,
+    "format-wifi": "",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰌙",
+    "tooltip-format-wifi": "{essid}\nSignal: {signalStrength}%\n: {bandwidthDownBytes}  : {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "{ifname}\n: {bandwidthDownBytes}  : {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected"
+  },
   "custom/launcher": {
     "format": "",
     "on-click": "walker",
