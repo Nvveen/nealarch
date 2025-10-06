@@ -11,6 +11,8 @@ log() {
 setup_packages() {
     log "Setting up packages..."
     sudo pacman -Syu --noconfirm $PACKAGES
+
+    sudo systemctl enable sddm
 }
 
 install_defaults () {
