@@ -36,8 +36,8 @@ setup_config() {
     log "Setting up configuration..."
     # Add any additional configuration steps here
     cd $SCRIPT_DIR || exit
-    mkdir -p $HOME/.config
-    stow --target=$HOME --dir=$FILES_DIR user
+    cp -r $FILES_DIR/user/. $HOME/
+    stow --adopt --target=$HOME --dir=$FILES_DIR user
 }
 
 main() {
