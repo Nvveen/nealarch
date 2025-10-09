@@ -15,20 +15,6 @@ setup_packages() {
     sudo systemctl enable sddm
 }
 
-install_defaults () {
-    log "Installing default configuration files..."
-    mkdir -p ~/.local/share/nealarch/default
-    cp -r "$SCRIPT_DIR/files/default/"* ~/.local/share/nealarch/default/
-}
-
-install_configs() {
-    log "Installing configuration files..."
-    mkdir -p ~/.config
-    cp -r "$SCRIPT_DIR/files/config/"* ~/
-
-    xdg-user-dirs-update
-}
-
 setup_paru() {
     if ! command -v paru &> /dev/null; then
         echo "Installing paru..."
@@ -47,8 +33,6 @@ setup_paru() {
 main() {
     setup_packages
     setup_paru
-    install_defaults
-    install_configs
 }
 
 main "$@"
