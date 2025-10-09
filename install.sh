@@ -2,6 +2,7 @@
 
 # absolute path to this script
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+FIILES_DIR="$SCRIPT_DIR/files"
 PACKAGES=$(cat "$SCRIPT_DIR/packages" | tr '\n' ' ')
 
 log() {
@@ -14,6 +15,9 @@ setup_packages() {
 
     sudo systemctl enable sddm
     sudo systemctl enable sshd
+
+    cd $SCRIPT_DIR || exit
+    stow --target=$HOME --dir=$FILES_DIR user
 }
 
 setup_paru() {
