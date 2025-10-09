@@ -3,6 +3,8 @@
 # absolute path to this script
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 FILES_DIR="$SCRIPT_DIR/files"
+CUSTOM_DIR="$FILES_DIR/custom"
+DEFAULT_DIR="$FILES_DIR/default"
 PACKAGES=$(cat "$SCRIPT_DIR/packages" | tr '\n' ' ')
 
 log() {
@@ -36,8 +38,12 @@ setup_config() {
     log "Setting up configuration..."
     # Add any additional configuration steps here
     cd $SCRIPT_DIR || exit
-    cp -r $FILES_DIR/user/. $HOME/
-    stow --adopt --target=$HOME --dir=$FILES_DIR user
+    cp -r $DEFAULT_DIR/ $HOME/
+    stow --adopt --target=$HOME --dir=$DEFAULT_DIR user
+
+    # copy files that can change per system
+    # these will not be linked to
+    cp -r $CUSTOM_DIR/ $HOME/
 }
 
 main() {
