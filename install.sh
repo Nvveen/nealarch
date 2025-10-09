@@ -38,12 +38,12 @@ setup_config() {
     log "Setting up configuration..."
     # Add any additional configuration steps here
     cd $SCRIPT_DIR || exit
-    cp -r $DEFAULT_DIR/ $HOME/
+    cp -rv $DEFAULT_DIR/user/. $HOME/
     stow --adopt --target=$HOME --dir=$DEFAULT_DIR user
 
     # copy files that can change per system
     # these will not be linked to
-    cp -r $CUSTOM_DIR/ $HOME/
+    cp -rv $CUSTOM_DIR/user/. $HOME/
 }
 
 main() {
