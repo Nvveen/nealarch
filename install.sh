@@ -13,6 +13,7 @@ setup_packages() {
     sudo pacman -Syu --noconfirm $PACKAGES
 
     sudo systemctl enable sddm
+    sudo systemctl enable sshd
 }
 
 setup_paru() {
