@@ -5,7 +5,7 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 FILES_DIR="$SCRIPT_DIR/files"
 CUSTOM_DIR="$FILES_DIR/custom"
 DEFAULT_DIR="$FILES_DIR/default"
-PACKAGES=$(cat "$SCRIPT_DIR/packages" | tr '\n' ' ')
+source "$SCRIPT_DIR/packages"
 
 log() {
     echo -e "\e[32m[INFO]\e[0m $1"
@@ -13,7 +13,7 @@ log() {
 
 setup_packages() {
     log "Setting up packages..."
-    sudo pacman -Syu --noconfirm $PACKAGES
+    sudo pacman -Syu --needed --noconfirm "${PACKAGES[@]}"
 
     sudo systemctl enable sddm
     sudo systemctl enable sshd

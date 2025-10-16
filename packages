@@ -1,21 +1,34 @@
-foot
-foot-terminfo
-hyprcursor
-hypridle
-hyprland
-hyprlock
-hyprpaper
-hyprpolkitagent
-less
-mako
-neovim
-openssh
-otf-droid-nerd
-polkit
-sddm
-stow
-thunar
-vim
-xdg-desktop-portal-hyprland
-xdg-user-dirs
-waybar
+#!/usr/bin/env bash
+
+# Define package groups as arrays. Feel free to add/remove groups.
+BASE_PACKAGES=(
+	foot
+	foot-terminfo
+	less
+	neovim
+	openssh
+	otf-droid-nerd
+	polkit
+	sddm
+	stow
+	vim
+	xdg-user-dirs
+)
+
+HYPERLAND_PACKAGES=(
+	hyprcursor
+	hypridle
+	hyprland
+	hyprlock
+	hyprpaper
+	hyprpolkitagent
+	mako # notification daemon
+	waybar
+	xdg-desktop-portal-hyprland
+)
+
+# Merge arrays into PACKAGES. Order matters; duplicates will be removed later.
+PACKAGES=(
+	"${BASE_PACKAGES[@]}"
+	"${HYPERLAND_PACKAGES[@]}"
+)
