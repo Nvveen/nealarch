@@ -13,6 +13,7 @@ BASE_PACKAGES=(
 	stow
 	vim
 	xdg-user-dirs
+	zsh
 )
 
 HYPERLAND_PACKAGES=(
