@@ -40,7 +40,7 @@ setup_aur_packages() {
 
 setup_config() {
     log "Setting up configuration..."
-    # Add any additional configuration steps here
+    mkdir -p ~/.ssh/
     cd $SCRIPT_DIR || exit
     cp -rv $DEFAULT_DIR/user/. $HOME/
     stow --adopt --target=$HOME --dir=$DEFAULT_DIR user
