@@ -50,11 +50,18 @@ setup_config() {
     cp -rv $CUSTOM_DIR/user/. $HOME/
 }
 
+system_afterinstall() {
+    log "Running system after-install tasks..."
+    sudo mkdir -p /etc/sddm.conf.d
+    echo -e "[General]\nSession=hyprland-uwsm" | sudo tee /etc/sddm.conf.d/hyprland.conf
+}
+
 main() {
     setup_packages
     setup_paru
     setup_aur_packages
     setup_config
+    system_afterinstall
     log "Setup complete!"
 }
 
