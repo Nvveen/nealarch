@@ -32,3 +32,23 @@ PACKAGES=(
 	"${BASE_PACKAGES[@]}"
 	"${HYPERLAND_PACKAGES[@]}"
 )
+
+WALKER_PACKAGES=(
+	walker-bin
+	elephant-providerlist
+	elephant-desktopapplications
+	elephant-archlinuxpkgs
+	elephant-calc
+	elephant-clipboard
+	elephant-files
+	elephant-menus
+	elephant-runner
+	elephant-symbols
+	elephant-unicode
+	elephant-bluetooth
+)
+
+AUR_PACKAGES=(
+	# Add AUR packages here if needed
+	"${WALKER_PACKAGES[@]}"
+)

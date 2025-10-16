@@ -15,6 +15,9 @@ setup_packages() {
     log "Setting up packages..."
     sudo pacman -Syu --needed --noconfirm "${PACKAGES[@]}"
 
+    # silent paru install
+    paru -Syu --needed --noconfirm "${AUR_PACKAGES[@]}"
+
     sudo systemctl enable sddm
     sudo systemctl enable sshd
 }
