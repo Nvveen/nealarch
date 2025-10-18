@@ -11,6 +11,7 @@ BASE_PACKAGES=(
 	polkit
 	sddm
 	stow
+	starship
 	uwsm
 	vim
 	xdg-user-dirs
