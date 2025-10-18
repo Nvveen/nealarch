@@ -50,6 +50,12 @@ setup_config() {
     cp -rv $CUSTOM_DIR/user/. $HOME/
 }
 
+setup_dotfiles() {
+    log "Setting up dotfiles..."
+    cd $HOME || exit
+    curl -fsSL https://tinyurl.com/nealdotfiles | bash
+}
+
 system_afterinstall() {
     log "Running system after-install tasks..."
     sudo mkdir -p /etc/sddm.conf.d
@@ -62,6 +68,7 @@ main() {
     setup_aur_packages
     setup_config
     system_afterinstall
+    setup_dotfiles
     log "Setup complete!"
 }
 
